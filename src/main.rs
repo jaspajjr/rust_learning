@@ -1,9 +1,6 @@
 fn main() {
-    println!("Hello, world!");
-    let x: i32 = 32;
-    foo(x)
+    for i in 0..5{
+        println!("Hello {}", i);
+    }
 }
 
-fn foo(x: i32){
-    println!("x is {}", x);
-}
