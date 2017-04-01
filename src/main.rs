@@ -15,7 +15,7 @@ fn build_array(x: i32) -> Vec<i32>{
 }
 
 
-fn get_integer() -> String{
+fn get_integer() -> i32 {
 
     println!("Please input the number.");
 
@@ -24,9 +24,10 @@ fn get_integer() -> String{
     io::stdin().read_line(&mut num)
         .expect("Failed to read input line.");
 
-        //let num i32: num.parse::<i32>(){
-        //    Ok(num) => num,
-        //    Err(error) => continue
-        //};
-    return num;
+    let converted_num = num
+        .trim()
+        .parse()
+        .expect("Wanted a number.");
+
+    return converted_num;
 }
