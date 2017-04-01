@@ -31,3 +31,10 @@ fn get_integer() -> i32 {
 
     return converted_num;
 }
+
+fn create_primality_array(limit: i32) -> Vec<bool>{
+    //let v = vec![1, 2, 3];
+    let primality_array = vec![true; 10];
+    return primality_array;
+}
+
