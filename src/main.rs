@@ -3,19 +3,20 @@ use std::io;
 
 fn main() {
     let num = get_integer();
-    let array = build_array(32);
-    let primality_array = create_primality_array(32);
+    let mut primality_array = create_primality_array(num);
     println!("{:?}", primality_array);
-}
 
-fn build_array(x: i32) -> Vec<i32>{
-    let mut array: Vec<i32> = Vec::with_capacity(x as usize);
-    for num in 0..x {
-        array.push(num);
+    let mut p_list = Vec::new();
+    for (i, item) in primality_array.iter().enumerate() {
+        println!("{:?}", i+1);
+        if item == true {
+            p_list.push(i);
+            for n in (i*i..num).step_by(i) {
+                primality_array[n] = false
+            }
+        }
     }
-    return array;
 }
-
 
 fn get_integer() -> i32 {
 
@@ -36,10 +37,10 @@ fn get_integer() -> i32 {
 
 fn create_primality_array(limit: i32) -> Vec<bool>{
     let mut primality_array = Vec::new();
-    let mut do_thinger = 1..limit;
-    for i in &mut do_thinger {
-        primality_array.push(true)
+    let mut do_thinger = 1..(limit + 1);
+    //for i in &mut do_thinger {
+    for i in 1..limit{
+        primality_array.push(false)
     }
     return primality_array;
 }
-
