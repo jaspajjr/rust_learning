@@ -4,6 +4,8 @@ use std::io;
 fn main() {
     let num = get_integer();
     let array = build_array(32);
+    let primality_array = create_primality_array(32);
+    println!("{:?}", primality_array);
 }
 
 fn build_array(x: i32) -> Vec<i32>{
@@ -33,8 +35,11 @@ fn get_integer() -> i32 {
 }
 
 fn create_primality_array(limit: i32) -> Vec<bool>{
-    //let v = vec![1, 2, 3];
-    let primality_array = vec![true; 10];
+    let mut primality_array = Vec::new();
+    let mut do_thinger = 1..limit;
+    for i in &mut do_thinger {
+        primality_array.push(true)
+    }
     return primality_array;
 }
 
